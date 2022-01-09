@@ -1,4 +1,4 @@
-package net.azurewebsites.solidwater.springpetclinic;
+package net.azurewebsites.solidwater.springpetclinic.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
