@@ -1,9 +1,6 @@
 package net.azurewebsites.solidwater.springpetclinic;
 
-import net.azurewebsites.solidwater.springpetclinic.controller.ConstructorInjectedController;
-import net.azurewebsites.solidwater.springpetclinic.controller.MyController;
-import net.azurewebsites.solidwater.springpetclinic.controller.PropertyInjectedController;
-import net.azurewebsites.solidwater.springpetclinic.controller.SetterInjectedController;
+import net.azurewebsites.solidwater.springpetclinic.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,11 +13,13 @@ public class SpringPetClinicApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringPetClinicApplication.class, args);
 
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
+
 		MyController myController = (MyController) ctx.getBean("myController");
 
-		String greeting = myController.sayHello();
-
-		System.out.println(greeting);
+		System.out.println("-------- PRIMARY bean");
+		System.out.println(myController.sayHello());
 
 		System.out.println("-------- Property Injection");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
